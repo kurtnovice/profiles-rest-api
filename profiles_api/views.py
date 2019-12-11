@@ -5,6 +5,7 @@ from rest_framework import viewsets
 
 from rest_framework.authentication import TokenAuthentication
 #generate random token string, every request we add token to request
+from rest_framework import filters
 
 from profiles_api import serializers
 from profiles_api import models
@@ -105,3 +106,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     #we can add more authentication classes in this variable, mechanism of authentication_classes
     permission_classes = (permissions.UpdateOwnProfile, )
+    filter_backends = (filters.SearchFilter, )
+    #to search profiles
+    search_fields = ('name', 'email')
+    #these are the fields by which the search can be done
