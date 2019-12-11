@@ -7,9 +7,11 @@ from profiles_api import views
 router = DefaultRouter();
 router.register('hello-viewset', views.HelloViewSet, base_name='hello-viewset')
 #this is used to retrieve our route in the router, if we need to retrieve the function
-
+router.register('profile', views.UserProfileViewSet)
+#dont need to provide base_name because in UserProfileViewSet queryset has been defined
 
 urlpatterns = [
     path('hello-view/', views.HelloApiView.as_view()),
-    path('', include(router.urls))
+    path('', include(router.urls)),
+
 ]
