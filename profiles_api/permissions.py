@@ -21,3 +21,8 @@ class UpdateOwnStatus(permissions.BasePermission):
             return True
 
         return obj.user_profile.id == request.user.id
+
+class ViewOwnStatus(permissions.BasePermission):
+    """Only allow owner of status to view status"""
+    def has_object_permission(self, request, view, obj):
+        return obj.user_profile.id == request.user.id
