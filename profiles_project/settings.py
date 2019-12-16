@@ -25,7 +25,12 @@ SECRET_KEY = 'kbzb^a4+)*^byu^m3_aoz52!ufrjbvcjjccu^6zop8)in@s-_4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get('DEBUG', 1)))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "ec2-13-229-202-34.ap-southeast-1.compute.amazonaws.com",
+    '127.0.0.1'
+]
+#to specify hostname so that by any chance a person finds this IP address,
+#they can only access it form the hostname
 
 
 # Application definition
